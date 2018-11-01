@@ -1,0 +1,79 @@
+Teau Daria-Elena
+311CD
+
+-->createDictionary: Creaza un dictionar vid. Aloca memorie pentru un element 
+de tip Dictionary, apoi aloca memorie pentru un vector cu N elemente de tip 
+ListNode. Fiecare element al acestui vector va fi o lista vida creata cu 
+ajutorul functiei createList(aceasta aloca memorie pentru key si value si 
+pune next-ul si prev-ul pe NULL). In caz ca o alocare nu reuseste, vor fi 
+eliberate si listele alocate anterior. Functia returneaza dictionarul.
+
+-->addElement: Adauga un element, respectand criteriile din enunt. Initial 
+verifica daca mai exista un element cu aceleasi key si value folosind functia 
+exists(intoarce 0 daca nu exista, iar daca exista intoarce frequency-ul 
+elementului). Daca elementul nu exista se verifica daca numarul elementelor din 
+lista coincide cu numarul listelor din dictionar, daca da, atunci se sterge 
+ultimul element. Apoi daca elementul exista frequency se va actualiza, iar apoi 
+elementul va fi scos din lista, urmand sa fie adaugat avand noul frequency. 
+Initial este tratat cazul in care lista nu are niciun element. Apoi se parcurge 
+lista. In caz ca frequency-ul elementului la care ma aflu este ma mic decat 
+frequency-ul elementului pe care vreau sa il adaug, pun noul element inaintea 
+celui curent. Daca se ajunge la final si niciun element nu a avut frequency-ul
+mai mic, atunci noul element va fi adaugat in coada listei. In caz ca frequency 
+este acelasi se va sorta alfabetic in functie de value pe acelasi principiu ca 
+inainte. Daca si frequency si value sunt identice se va sorta dupa key alfabetic, 
+pe acelasi principiu ca la value. Dupa ce lista a fost parcursa, la finalul 
+functiei se verifica daca numarul elementelor din dictionar depaseste 2*N, iar 
+daca asta se intampla va fi sters ultimul element din fiecare lista.
+
+-->removeElement: Trateaza mai intai cazul in care lista are un singur element, 
+caz in care aceasta va deveni vida. Apoi este parcursa lista si se cauta elementul
+cu key si value date, urmand sa fie eliminat. Este tratat separat cazul in care 
+se va scoate elementul din capul listei.
+
+-->printDictionary: Fiecare lista este parcursa cu un while si ii sunt afisate 
+elementele. Se mai face o afisare in afara while-ului deoarece ultimul element
+nu va intra in while, avand next-ul egal cu primul element.
+
+-->get: Este parcursa fiecare lista, iar de fiecare data cand se gaseste un 
+element cu key-ul dat ca parametru acesta este adaugat intr-o lista dublu 
+inlantuita necirculara cu ajutorul unei functii AddEnd, care adauga un element
+la finalul unei liste necirculare. Aceasta lista va fi returnata. Elementele vor
+fi adaugate intr-o noua lista, asemenea primei, cu ajotorul careia vor fi 
+inserate in lista din dictionar, dand ca parametru frequency 1, ceea ce va 
+creste cu 1 frequency-ul si le va sorta corespunzator.
+
+-->printValue: Parcurge fiecare lista din dictionar, iar de fiecare data cand 
+gaseste un element cu value dat ca parametru printeza tuplul respectiv.
+
+-->printFrequency: Parcurge fiecare lista din dictionar, iar de fiecare data 
+cand gaseste un element cu frequency-ul dat ca parametru printeza tuplul respectiv.
+
+-->unionValues: Parcurge fiecare lista din dictionar, iar atunci cand gaseste 
+un element cu value dat ca paramteru il adauga intr-o lista dublu inlantuita 
+necirculara cu ajutorul functiei AddEnd. Functia returneza lista construita.
+
+-->unionMaxFrequencies: Parcurge listele din tot dictionarul. Adauga intr-o 
+lista dublu inlantuita necirculara cu ajotorul functiei AddEnd primul element 
+al fiecarei liste, deaoarece acesta are cel mai mare frequency. Apoi cauta in
+lista, iar daca gaseste un element cu alcelasi frequency il va adauga si pe el.
+Returneaza lista necirculara, ca va cuprinde frequency-urile maxime din fiecare
+lista.
+
+-->reverseLists: Initializeaza un dictionar nou vid. Apoi parcurge la coada la 
+capat elementele din fiecare lista a dictionarului dat ca parametru si le adauga
+una dupa alta in lista corespunzatoare din noul dictionar. Adaugarea se face 
+cu ajutorul functiei add, care adauga un element la coada unei liste dublu 
+inlantuite necirculare. Functia returneaza dictionarul nou creat.
+
+-->printList: Printeza tuplurile dintr-o lista dublu inlantuita necirculara, 
+folosind un while ce se opreste cand pointerul cu ajutorul caruia parcurg lista
+ajunge NULL.
+
+-->freeDictionary: Parcurge fiecare lista din dictionar, transformand-o in una 
+necirculara pentru usurinta parcurgerii. Elibereaza fiecare element, iar la 
+final eliberez memoria alocata pentru vectorul de liste si dupa memoria alocata
+pentru dictionar.
+
+-->freeList: Parcurge lista, inainte sa treaca la elementul urmator pastreaza
+intr-un pointer elementul curent, care va fi eliberat dupa ce se trece la urmatorul.
